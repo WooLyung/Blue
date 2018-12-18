@@ -43,7 +43,7 @@ void Player::Move()
 					GetComponent<AnimationRenderer>()->PushTextures("Sprites/Entities/player/pull/right", 5, true);
 					moveState->animation = MoveState::PULL_RIGHT;
 					grappedBlock->pos.x -= 600 * DT;
-					pos.x -= 100 * DT;
+					pos.x -= 230 * DT;
 					return;
 				}
 				else if (moveState->isPush)
@@ -57,9 +57,12 @@ void Player::Move()
 					moveState->animation = MoveState::WALK_RIGHT;
 				}
 			}
-
+			
 			if (GetComponent<RigidBody>()->isTouchingBottom)
-				this->pos.x += 600 * DT;
+			{
+				if (moveState->isPush) this->pos.x += 1000 * DT;
+				else this->pos.x += 600 * DT;
+			}
 			else
 				this->pos.x += 500 * DT;
 		}
@@ -75,7 +78,7 @@ void Player::Move()
 					GetComponent<AnimationRenderer>()->PushTextures("Sprites/Entities/player/pull/left", 5, true);
 					moveState->animation = MoveState::PULL_LEFT;
 					grappedBlock->pos.x += 600 * DT;
-					pos.x += 100 * DT;
+					pos.x += 230 * DT;
 					return;
 				}
 				else if (moveState->isPush)
@@ -91,7 +94,10 @@ void Player::Move()
 			}
 
 			if (GetComponent<RigidBody>()->isTouchingBottom)
-				this->pos.x -= 600 * DT;
+			{
+				if (moveState->isPush) this->pos.x -= 1000 * DT;
+				else this->pos.x -= 600 * DT;
+			}
 			else
 				this->pos.x -= 500 * DT;
 		}
