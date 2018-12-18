@@ -80,10 +80,6 @@ enum SoundID {
 #include<dsound.h>
 #include"App.h"
 
-
-
-
-
 template <typename T>
 inline void SafeDelete(T*& p)
 {

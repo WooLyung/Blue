@@ -3,7 +3,7 @@
 #include "MouseListener.h"
 #include "StartButton.h"
 #include "EndButton.h"
-#include "Stage1.h"
+#include "Intro.h"
 
 Mainmenu::Mainmenu()
 {
@@ -44,7 +44,7 @@ void Mainmenu::OnUpdate()
 	{
 		fadeTime += DT;
 		if (fadeTime >= 0)
-			RG2SceneManager->ChangeScene(new Stage1({ false, false, false, false, false, 0, false, 0, -3500, false }));
+			RG2SceneManager->ChangeScene(new Intro());
 
 		fade->GetComponent<Effect>()->PopEffectInfo()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, fadeTime + 1.4f)))->SetEnabled(true);
 	}
