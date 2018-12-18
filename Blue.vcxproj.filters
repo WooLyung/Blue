@@ -157,14 +157,17 @@
     <ClCompile Include="Stage4.cpp">
       <Filter>Game\Scenes\Stage4</Filter>
     </ClCompile>
-    <ClCompile Include="Mainmenu.cpp">
-      <Filter>Game\Scenes\Mainmenu</Filter>
-    </ClCompile>
     <ClCompile Include="StartButton.cpp">
       <Filter>Game\UIs\StartButton</Filter>
     </ClCompile>
     <ClCompile Include="EndButton.cpp">
       <Filter>Game\UIs\EndButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Mainmenu.cpp">
+      <Filter>Game\Scenes\Mainmenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>Game\Scenes\Intro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -345,14 +348,17 @@
     <ClInclude Include="Stage4.h">
       <Filter>Game\Scenes\Stage4</Filter>
     </ClInclude>
-    <ClInclude Include="Mainmenu.h">
-      <Filter>Game\Scenes\Mainmenu</Filter>
-    </ClInclude>
     <ClInclude Include="StartButton.h">
       <Filter>Game\UIs\StartButton</Filter>
     </ClInclude>
     <ClInclude Include="EndButton.h">
       <Filter>Game\UIs\EndButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Mainmenu.h">
+      <Filter>Game\Scenes\Mainmenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>Game\Scenes\Intro</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -559,6 +565,9 @@
     </Filter>
     <Filter Include="Game\UIs\EndButton">
       <UniqueIdentifier>{8f4e5c8e-487d-4284-831e-af5d9c0207b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes\Intro">
+      <UniqueIdentifier>{725a5039-f492-4370-8c1e-ea86defe148c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
