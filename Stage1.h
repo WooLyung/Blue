@@ -14,4 +14,7 @@ public:
 	bool CanRegame();
 
 	void OnUpdate();
+
+	Entity* hints[17];
+	bool hint = false;
 };

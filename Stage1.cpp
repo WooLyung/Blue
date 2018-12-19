@@ -168,6 +168,42 @@ Stage1::Stage1(Data data)
 	}
 	inFile.close();
 #pragma endregion
+#pragma region Hint
+	AddChild(hints[0] = (new Entity())->SetPos(Vec2F(30 * 256, 27 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint2.png")->GetOwner());
+	hints[0]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[1] = (new Entity())->SetPos(Vec2F(25 * 256, 28 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[1]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[2] = (new Entity())->SetPos(Vec2F(43 * 256, 28 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[2]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[3] = (new Entity())->SetPos(Vec2F(51 * 256, 28 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[3]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[4] = (new Entity())->SetPos(Vec2F(51 * 256, 26 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint2.png")->GetOwner());
+	hints[4]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[5] = (new Entity())->SetPos(Vec2F(51 * 256, 25 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[5]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[6] = (new Entity())->SetPos(Vec2F(51 * 256, 24 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[6]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[7] = (new Entity())->SetPos(Vec2F(94 * 256, 22 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[7]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[8] = (new Entity())->SetPos(Vec2F(94 * 256, 21 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[8]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[9] = (new Entity())->SetPos(Vec2F(94 * 256, 20 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[9]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[10] = (new Entity())->SetPos(Vec2F(94 * 256, 19 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[10]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[11] = (new Entity())->SetPos(Vec2F(140 * 256, 16 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint2.png")->GetOwner());
+	hints[11]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[12] = (new Entity())->SetPos(Vec2F(140 * 256, 20 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[12]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[13] = (new Entity())->SetPos(Vec2F(141 * 256, 20 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[13]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[14] = (new Entity())->SetPos(Vec2F(151 * 256, 19 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint2.png")->GetOwner());
+	hints[14]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[15] = (new Entity())->SetPos(Vec2F(153 * 256, 19 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint2.png")->GetOwner());
+	hints[15]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+	AddChild(hints[16] = (new Entity())->SetPos(Vec2F(151 * 256, 23 * 256))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/hint/hint1.png")->GetOwner());
+	hints[16]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
+#pragma endregion
 #pragma region Create Objects
 	switchs *newSwitch[21];
 	portal *newPortal[10];
@@ -549,6 +585,13 @@ void Stage1::OnUpdate() {
 			AddChild(newParticle);
 			particles->push_back(newParticle);
 		}
+	}
+
+	if (RG2Input->GetKeyState(KeyCode::KEY_H) == KeyState::KEYSTATE_ENTER)
+	{
+		hint = !hint;
+		for (int i = 0; i < 17; i++)
+			hints[i]->GetComponent<Effect>()->PopEffectInfo()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, hint)))->SetEnabled(true);
 	}
 }
 
