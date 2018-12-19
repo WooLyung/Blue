@@ -58,6 +58,8 @@ public:
 	Entity *debug;
 	Entity *background[7];
 	Entity *frontground[2];
+	Entity *emblem;
+
 	float fadeTime = 0;
 	bool isGiveup = false;
 	bool isGameover = false;

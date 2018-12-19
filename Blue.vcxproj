@@ -167,6 +167,7 @@
     <ClCompile Include="door.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectInfo.cpp" />
+    <ClCompile Include="emblemParticle.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="EndButton.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -229,6 +230,7 @@
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EffectInfo.h" />
     <ClInclude Include="EffectType.h" />
+    <ClInclude Include="emblemParticle.h" />
     <ClInclude Include="End.h" />
     <ClInclude Include="EndButton.h" />
     <ClInclude Include="Entity.h" />

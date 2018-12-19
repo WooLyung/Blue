@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Stage4.h"
+#include "emblemParticle.h"
 
 Stage4::Stage4(Data data)
 {
@@ -196,6 +197,13 @@ Stage4::Stage4(Data data)
 	switchs *newSwitch[21];
 	portal *newPortal[14];
 	IBlock *newBlock;
+
+	emblem = new Entity();
+	emblem->SetPos(Vec2F(112 * 256, 27 * 256));
+	emblem->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Entities/emblem/love.png");
+	if (data.col4)
+		emblem->SetScale(Vec2F(0, 0));
+	AddChild(emblem);
 
 #pragma region Puzzle 1
 	newSwitch[0] = new foothold(14 * 256, 21 * 256, BOTTOM);
@@ -460,6 +468,28 @@ void Stage4::OnUpdate() {
 	{
 		fadeTime = -1.3f;
 		isGiveup = false;
+	}
+
+	if (player->pos.x <= emblem->pos.x + 256
+		&& player->pos.x + 256 >= emblem->pos.x
+		&& player->pos.y <= emblem->pos.y + 256
+		&& player->pos.y + 512 >= emblem->pos.y
+		&& !data.col4)
+	{
+		emblem->SetScale(Vec2F(0, 0));
+		data.col4 = true;
+		for (int i = 0; i < 25; i++)
+		{
+			Entity* newParticle = new emblemParticle(emblem->pos.x, emblem->pos.y, "Sprites/Entities/emblem/love.png");
+			float speed = Random(20.f, 35.f);
+			float angle = Random(-PI, PI);
+			float scale = Random(0.5f, 1.5f);
+			newParticle->GetComponent<RigidBody>()->velocityX = cos(angle) * speed;
+			newParticle->GetComponent<RigidBody>()->velocityY = sin(angle) * speed;
+			newParticle->SetScale(Vec2F(scale, scale));
+			AddChild(newParticle);
+			particles->push_back(newParticle);
+		}
 	}
 }
 
