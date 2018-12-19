@@ -386,9 +386,25 @@ Stage3::Stage3(Data data)
 		Color(1.f, 1.f, 1.f, 1.f), "");
 	text->AttachComponent<UI>(Vec2F(30, -70), UI::DIR::LEFT_BOTTOM, cam);
 	if (data.isGiveup)
-		text->GetComponent<TextRenderer>()->SetText("가끔은 포기해도 괜찮을거야");
+	{
+		int ran = Random(0, 5);
+		if (ran == 0) text->GetComponent<TextRenderer>()->SetText("가끔은 포기해도 괜찮을거야");
+		if (ran == 1) text->GetComponent<TextRenderer>()->SetText("내 탓이 아니야");
+		if (ran == 2) text->GetComponent<TextRenderer>()->SetText("이번 한번만..");
+		if (ran == 3) text->GetComponent<TextRenderer>()->SetText("힘들다면 피해야지");
+		if (ran == 4) text->GetComponent<TextRenderer>()->SetText("어차피 가망은 없었어");
+		if (ran == 5) text->GetComponent<TextRenderer>()->SetText("포기가 마음 편할지도 모르겠네");
+	}
 	else if (data.nowPuzzle != 0)
-		text->GetComponent<TextRenderer>()->SetText("좋아, 다시 해보는거야");
+	{
+		int ran = Random(0, 5);
+		if (ran == 0) text->GetComponent<TextRenderer>()->SetText("좋아. 다시 해보는거야");
+		if (ran == 1) text->GetComponent<TextRenderer>()->SetText("한번 더 도전해보자");
+		if (ran == 2) text->GetComponent<TextRenderer>()->SetText("아직 실패한게 아니야");
+		if (ran == 3) text->GetComponent<TextRenderer>()->SetText("잘 할 수 있을거야");
+		if (ran == 4) text->GetComponent<TextRenderer>()->SetText("나는 나를 믿어");
+		if (ran == 5) text->GetComponent<TextRenderer>()->SetText("계속 시도한다면..");
+	}
 	AddChild(text);
 
 
