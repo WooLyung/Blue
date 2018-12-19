@@ -11,8 +11,31 @@ Intro::Intro()
 
 	cam = new Camera(this);
 
-	imgEntity = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/0.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
-	AddChild(imgEntity);
+	imgEntity[0] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/0.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[0]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 1)))->SetEnabled(true);
+	imgEntity[1] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/1.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[1]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+	imgEntity[2] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/2.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[2]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+	imgEntity[3] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/3.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[3]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+	imgEntity[4] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/4.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[4]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+	imgEntity[5] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/5.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[5]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+	imgEntity[6] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/6.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[6]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+	imgEntity[7] = (new Entity())->SetPos(Vec2F(0, 0))->SetScale(Vec2F(256.f / 40, 256.f / 40))->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/7.png")->GetOwner()->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam)->GetOwner();
+	imgEntity[7]->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1, 1, 1, 0)))->SetEnabled(true);
+
+	AddChild(imgEntity[0]);
+	AddChild(imgEntity[1]);
+	AddChild(imgEntity[2]);
+	AddChild(imgEntity[3]);
+	AddChild(imgEntity[4]);
+	AddChild(imgEntity[5]);
+	AddChild(imgEntity[6]);
+	AddChild(imgEntity[7]);
 
 	fade = new Entity();
 	fade->AttachComponent<SpriteRenderer>()->SetTexture("Sprites/Backgrounds/fade.png");
@@ -40,13 +63,17 @@ void Intro::OnUpdate()
 		else if (img <= 6)
 		{
 			img++;
-			if (img == 1) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/1.png");
-			if (img == 2) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/2.png");
-			if (img == 3) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/3.png");
-			if (img == 4) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/4.png");
-			if (img == 5) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/5.png");
-			if (img == 6) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/6.png");
-			if (img == 7) imgEntity->GetComponent<SpriteRenderer>()->SetTexture("Sprites/Intro/7.png");
+			imgAppear[img - 1] = 0;
+		}
+	}
+
+	for (int i = 1; i <= 7; i++)
+	{
+		if (imgAppear[i - 1] != -1)
+		{
+			imgAppear[i - 1] += DT * 1.6f;
+			if (imgAppear[i - 1] > 1) imgAppear[i - 1] = 1;
+			imgEntity[i]->GetComponent<Effect>()->PopEffectInfo()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, imgAppear[i - 1])))->SetEnabled(true);
 		}
 	}
 

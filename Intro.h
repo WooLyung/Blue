@@ -18,6 +18,7 @@ public:
 	float fadeTime;
 	int img = 0;
 
-	Entity* imgEntity;
+	Entity* imgEntity[8];
+	float imgAppear[7] = { -1, -1, -1, -1, -1, -1, -1 };
 };
 
