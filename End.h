@@ -14,8 +14,12 @@ public:
 	void OnUpdate();
 
 	Camera *cam;
-	Data data;
 	Entity *fade;
 	float fadeTime;
+	int img = 0;
+	char rank;
+
+	Entity* imgEntity[11];
+	float imgAppear[10] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
 };
 
