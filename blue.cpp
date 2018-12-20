@@ -28,5 +28,4 @@ blue::~blue()
 
 void blue::OnUpdate()
 {
-
 }
