@@ -27,9 +27,18 @@ enum Tag {
 };
 //엔진에서 사용할 사운드 ID 설정
 enum SoundID {
-	SIDIntro,
-	SIDBgm,
-	SIDShoot,
+	sWalk,
+	sRun,
+	sPush,
+	sDrag,
+	sJump,
+	sWind,
+	sForce,
+	sEmblem,
+	sButtonDown,
+	sButtonUp,
+	sLever,
+	BGMmain
 };
 
 // deltatime

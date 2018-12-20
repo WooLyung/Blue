@@ -4,6 +4,7 @@
 #include "StartButton.h"
 #include "EndButton.h"
 #include "End.h"
+#include "Stage1.h"
 
 Intro::Intro()
 {
@@ -90,8 +91,8 @@ void Intro::OnUpdate()
 		fadeTime += DT;
 		if (fadeTime >= 0)
 		{
-			//RG2SceneManager->ChangeScene(new Stage1({ false, false, false, false, false, 0, false, 0, -3500, false }));
-			RG2SceneManager->ChangeScene(new End({ false, false, false, false, false, 0, false, 9, -3500, false }));
+			RG2SceneManager->ChangeScene(new Stage1({ false, false, false, false, false, 0, false, 0, -3500, false }));
+			//RG2SceneManager->ChangeScene(new End({ false, false, false, false, false, 0, false, 9, -3500, false }));
 		}
 
 		fade->GetComponent<Effect>()->PopEffectInfo()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, fadeTime + 1.4f)))->SetEnabled(true);

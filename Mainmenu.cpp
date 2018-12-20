@@ -21,6 +21,21 @@ Mainmenu::Mainmenu()
 	fade->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam);
 	fade->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
 	AddChild(fade);
+
+	RG2SoundManager->Load(SoundID::sDrag, "Audio/drag.ogg");
+	RG2SoundManager->Load(SoundID::sJump, "Audio/jump.ogg");
+	RG2SoundManager->Load(SoundID::sPush, "Audio/push.ogg");
+	RG2SoundManager->Load(SoundID::sRun, "Audio/run.ogg");
+	RG2SoundManager->Load(SoundID::sWalk, "Audio/walk.ogg");
+	RG2SoundManager->Load(SoundID::sWind, "Audio/wind.ogg");
+	RG2SoundManager->Load(SoundID::sForce, "Audio/force.ogg");
+	RG2SoundManager->Load(SoundID::sEmblem, "Audio/emblem.ogg");
+	RG2SoundManager->Load(SoundID::sButtonDown, "Audio/buttonDown.ogg");
+	RG2SoundManager->Load(SoundID::sButtonUp, "Audio/buttonUp.ogg");
+	RG2SoundManager->Load(SoundID::sLever, "Audio/lever.ogg");
+	RG2SoundManager->Load(SoundID::BGMmain, "Audio/mainBGM.ogg");
+
+	RG2SoundManager->Play(SoundID::BGMmain, true, false);
 }
 
 Mainmenu::~Mainmenu()

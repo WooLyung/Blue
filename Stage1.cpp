@@ -5,6 +5,8 @@
 
 Stage1::Stage1(Data data)
 {
+	RG2SoundManager->Stop(SoundID::BGMmain);
+
 #pragma region Default Setting
 	blocks = new list<IBlock*>;
 	particles = new list<Entity*>;
@@ -600,6 +602,7 @@ void Stage1::OnUpdate() {
 			newParticle->SetScale(Vec2F(scale, scale));
 			AddChild(newParticle);
 			particles->push_back(newParticle);
+			RG2SoundManager->Play(SoundID::sEmblem, false, false);
 		}
 	}
 

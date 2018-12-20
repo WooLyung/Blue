@@ -25,6 +25,7 @@ void Stage::OnUpdate()
 	player->moveState->isNextBlock = false;
 	player->grappedBlock = NULL;
 	Rect rect1 = player->GetComponent<AABBCollider>()->GetRectWithWorldPos();
+	RG2SoundManager->Stop(SoundID::sWind);
 
 	for each(IBlock *block in *blocks)
 	{
@@ -40,6 +41,7 @@ void Stage::OnUpdate()
 				if (RG2Input->GetKeyState(KeyCode::KEY_Z) == KeyState::KEYSTATE_ENTER)
 				{
 					((switchs*)block)->isActive = !((switchs*)block)->isActive;
+					RG2SoundManager->Play(SoundID::sLever, false, false);
 				}
 			}
 		}
@@ -122,6 +124,11 @@ void Stage::OnUpdate()
 					if (((fan*)block)->angle != 0 && ((fan*)block)->angle != PI && ((fan*)block)->angle != -PI && ((fan*)block)->angle != 2 * PI) 
 						player->GetComponent<RigidBody>()->velocityY = sin(((fan*)block)->angle) * ((fan*)block)->power;
 				}
+			}
+			if (pow(pos1_x - pos2_x, 2) + pow(pos1_y - pos2_y, 2)
+				<= pow(abs(rect2.bottom - pos1_y) + 256 * 16, 2)) // 거리 체크
+			{
+				RG2SoundManager->Play(SoundID::sWind, true, false);
 			}
 
 			for each(IBlock *block2 in *blocks)
@@ -291,7 +298,7 @@ void Stage::OnUpdate()
 			block->pos.x -= DT * 200;
 		}
 	}
-	if (blueEntity->pos.x > 0 && player->pos.x - blueEntity->pos.x <= 1400 && fadeTime == 0)
+	if (blueEntity->pos.x > 0 && player->pos.x - blueEntity->pos.x <= 1000 && fadeTime == 0)
 	{
 		fadeTime = -1.3f;
 		isGameover = true;

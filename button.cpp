@@ -38,6 +38,8 @@ button::~button()
 
 void button::OnUpdate()
 {
+	bool lasted = isActive;
+
 	if (isRelative)
 	{
 		pos.x = owner->pos.x + relativePos.x;
@@ -94,5 +96,13 @@ void button::OnUpdate()
 			GetComponent<SpriteRenderer>()->SetTexture("Sprites/Blocks/button/left/button_left_normal.png");
 			break;
 		}
+	}
+
+	if (isActive != lasted)
+	{
+		if (isActive)
+			RG2SoundManager->Play(SoundID::sButtonDown, false, false);
+		else
+			RG2SoundManager->Play(SoundID::sButtonUp, false, false);
 	}
 }

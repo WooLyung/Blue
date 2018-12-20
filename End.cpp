@@ -145,6 +145,8 @@ End::End(Data data)
 	fade->AttachComponent<UI>(Vec2F(0, 0), UI::DIR::LEFT_TOP, cam);
 	fade->AttachComponent<Effect>()->PushEffectInfo(new ColorMatrixEffectInfo(Color(1.f, 1.f, 1.f, 0.f)))->SetEnabled(true);
 	AddChild(fade);
+
+	RG2SoundManager->Stop(SoundID::BGMmain);
 }
 
 End::~End()
@@ -166,7 +168,7 @@ void End::OnUpdate()
 			|| rank == 'f' && img == 6
 			|| rank == 'x')
 		{
-			img = 8;
+			img++;
 			fadeTime = -1.4f;
 		}
 		else if (rank == 'a' && img < 8

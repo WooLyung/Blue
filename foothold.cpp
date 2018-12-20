@@ -36,6 +36,8 @@ foothold::~foothold()
 
 void foothold::OnUpdate()
 {
+	bool lasted = isActive;
+
 	if (isRelative)
 	{
 		pos.x = owner->pos.x + relativePos.x;
@@ -82,5 +84,13 @@ void foothold::OnUpdate()
 			GetComponent<SpriteRenderer>()->SetTexture("Sprites/Blocks/foothold/left/foothold_left_normal.png");
 			break;
 		}
+	}
+
+	if (isActive != lasted)
+	{
+		if (isActive)
+			RG2SoundManager->Play(SoundID::sButtonDown, false, false);
+		else
+			RG2SoundManager->Play(SoundID::sButtonUp, false, false);
 	}
 }

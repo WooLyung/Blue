@@ -199,6 +199,7 @@ void Player::Move()
 			GetComponent<AnimationRenderer>()->SetLoop(false);
 			GetComponent<AnimationRenderer>()->SetFPS(60);
 			moveState->animation = MoveState::FORCE_RIGHT;
+			RG2SoundManager->Play(SoundID::sForce, false, true);
 		}
 		else
 		{
@@ -208,6 +209,7 @@ void Player::Move()
 			GetComponent<AnimationRenderer>()->SetLoop(false);
 			GetComponent<AnimationRenderer>()->SetFPS(60);
 			moveState->animation = MoveState::FORCE_LEFT;
+			RG2SoundManager->Play(SoundID::sForce, false, true);
 		}
 
 		grappedBlock = NULL;
@@ -238,6 +240,7 @@ void Player::Move()
 			GetComponent<AnimationRenderer>()->SetFPS(15);
 			GetComponent<AnimationRenderer>()->SetLoop(false);
 			GetComponent<AnimationRenderer>()->PushTextures("Sprites/Entities/player/jump/right", 3, true);
+			RG2SoundManager->Play(SoundID::sJump, false, false);
 		}
 		else // 왼쪽으로 점프
 		{
@@ -246,6 +249,7 @@ void Player::Move()
 			GetComponent<AnimationRenderer>()->SetFPS(15);
 			GetComponent<AnimationRenderer>()->SetLoop(false);
 			GetComponent<AnimationRenderer>()->PushTextures("Sprites/Entities/player/jump/left", 3, true);
+			RG2SoundManager->Play(SoundID::sJump, false, false);
 		}
 	}
 }

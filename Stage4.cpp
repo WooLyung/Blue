@@ -505,6 +505,7 @@ void Stage4::OnUpdate() {
 			newParticle->SetScale(Vec2F(scale, scale));
 			AddChild(newParticle);
 			particles->push_back(newParticle);
+			RG2SoundManager->Play(SoundID::sEmblem, false, false);
 		}
 	}
 }
